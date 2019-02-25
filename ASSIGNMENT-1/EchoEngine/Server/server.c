@@ -6,6 +6,8 @@
 #include <sys/ipc.h>
 #include <sys/msg.h>
 #include <string.h>
+#include <sys/time.h>
+#include <time.h>
 
 #define PERMS 0644
 struct my_msgbuf {
@@ -39,7 +41,7 @@ int main(void) {
       perror("msgget");
       exit(1);
    }
-   printf("message queue RCV: ready to receive messages.\n");
+   //printf("message queue RCV: ready to receive messages.\n");
 
 //////////////// Msg queue process 1 is used to transmit messages to process 1 /////////////////////////////
   if ((key_p1 = ftok("../pA.txt", 'B')) == -1) {
@@ -51,7 +53,7 @@ int main(void) {
       perror("msgget");
       exit(1);
    }
-   printf("message queue PA: ready\n");
+   //printf("message queue PA: ready\n");
 
 //////////////// Msg queue process 2 is used to transmit messages to process 2 /////////////////////////////
   if ((key_p2 = ftok("../pB.txt", 'B')) == -1) {
@@ -63,7 +65,7 @@ int main(void) {
       perror("msgget");
       exit(1);
    }
-   printf("message queue pB: ready \n");
+   //printf("message queue pB: ready \n");
 
 //////////////// Msg queue process 3 is used to transmit messages to process 3 /////////////////////////////
   if ((key_p3 = ftok("../pC.txt", 'B')) == -1) {
@@ -75,7 +77,7 @@ int main(void) {
       perror("msgget");
       exit(1);
    }
-   printf("message queue pC: ready \n");
+   //printf("message queue pC: ready \n");
 //////////////// Msg queue process 4 is used to transmit messages to process 4 /////////////////////////////
   if ((key_p4 = ftok("../pD.txt", 'B')) == -1) {
       perror("ftok");
@@ -86,7 +88,7 @@ int main(void) {
       perror("msgget");
       exit(1);
    }
-   printf("message queue pD: ready \n");
+   //printf("message queue pD: ready \n");
 //////////////// Msg queue process 5 is used to transmit messages to process 5 /////////////////////////////
   if ((key_p5 = ftok("../pE.txt", 'B')) == -1) {
       perror("ftok");
@@ -97,9 +99,9 @@ int main(void) {
       perror("msgget");
       exit(1);
    }
-   printf("message queue pE: ready \n");
+   //printf("message queue pE: ready \n");
 
-
+struct timeval stop, start;
 
    
    for(;;) { 
@@ -108,6 +110,7 @@ int main(void) {
          perror("msgrcv");
          exit(1);
       }
+	gettimeofday(&start, NULL);
       //printf("recvd: \"%s\"\n", buf.mtext);
       //toend = strcmp(buf.mtext,"end");
       //if (toend == 0)
@@ -126,28 +129,38 @@ int main(void) {
 
       if(buf.mtype==1){ //Reply to process A
 	     if (msgsnd(msq_p1, &sendbuf, 2, 0) == -1) 
-        perror("msgsnd");
+        	perror("msgsnd");
+	gettimeofday(&stop, NULL);
+	printf("%lu,\n",stop.tv_usec - start.tv_usec);
       }
       else if(buf.mtype==2){//Reply to process B
 	sendbuf.mtype=2;
-//printf("recvd: \"%s come till here\"\n", buf.mtext);
+
          if (msgsnd(msq_p2, &sendbuf, 2, 0) == -1) 
          perror("msgsnd");
+	gettimeofday(&stop, NULL);
+	printf("%lu,\n",stop.tv_usec - start.tv_usec);
       }
       else if(buf.mtype==3){ //Reply to process C
 	sendbuf.mtype=3;         
 	if (msgsnd(msq_p3, &sendbuf, 2, 0) == -1) 
          perror("msgsnd");
+	gettimeofday(&stop, NULL);
+	printf("%lu,\n",stop.tv_usec - start.tv_usec);
       }
       else if(buf.mtype==4){//Reply to process D
 	sendbuf.mtype=4;         
 	if (msgsnd(msq_p4, &sendbuf, 2, 0) == -1) 
          perror("msgsnd");
+	gettimeofday(&stop, NULL);
+	printf("%lu,\n",stop.tv_usec - start.tv_usec);
       }
       else if(buf.mtype==5){ //Reply to process E
 	sendbuf.mtype=5;         
 	if (msgsnd(msq_p5, &sendbuf, 2, 0) == -1) 
          perror("msgsnd");
+	gettimeofday(&stop, NULL);
+	printf("%lu,\n",stop.tv_usec - start.tv_usec);
       }
       else{
          continue;
