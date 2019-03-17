@@ -247,7 +247,7 @@ struct timeval stop, start;
 	}
 	     
 	gettimeofday(&stop, NULL);
-	printf("%lu,\n",stop.tv_usec - start.tv_usec);
+	//printf("%lu,\n",stop.tv_usec - start.tv_usec);
       }
       else{
          continue;

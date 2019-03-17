@@ -62,7 +62,7 @@ int main(void) {
    loop_start = time(NULL);
    cur=time(NULL);
    int x=0;
-   while(x<1000){
+   while(x<100000){
  	strcpy(buf.mtext,"A.txt\0");
 	
 	gettimeofday(&start, NULL);
