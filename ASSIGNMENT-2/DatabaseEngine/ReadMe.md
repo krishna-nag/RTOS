@@ -1,5 +1,3 @@
-51.4882   87.6156  102.8634  118.9088  139.1136
-
 # DatabaseEngine: Socket
 
 The purpose of Database engine is to create a server, which when receives a file request, it replies to the process, with the string that contains the file data.
