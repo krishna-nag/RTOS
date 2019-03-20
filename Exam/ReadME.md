@@ -7,3 +7,16 @@ snakes_ladders.c shows the implementation of snakes and ladders using coroutines
 To compile, use: gcc snakes_and_ladders.c -o sn -lpthread -lrt.
 
 The "-lpthread -lrt" flag is required, when using semaphores.
+
+Sample output of snake and ladder program. (This keeps changing with every turn).
+
+# # # # # # # # # # 
+# # # # # # # # # # 
+# # # # # # # # # # 
+# # # # # # 1# # # # 
+# # # # # # # # # # 
+# # # # # # # # # # 
+# # # # # # # # # # 
+# # # # # # # # # # 
+# # # # # # # # 3# # 
+# # # # 2# # # # # 4# 
