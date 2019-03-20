@@ -10,13 +10,13 @@ The "-lpthread -lrt" flag is required, when using semaphores.
 
 Sample output of snake and ladder program. (This keeps changing with every turn).
 
-# # # # # # # # # # 
-# # # # # # # # # # 
-# # # # # # # # # # 
-# # # # # # 1# # # # 
-# # # # # # # # # # 
-# # # # # # # # # # 
-# # # # # # # # # # 
-# # # # # # # # # # 
-# # # # # # # # 3# # 
-# # # # 2# # # # # 4# 
+\# # # # # # # # # # <br>
+\# # # # # # # # # # <br>
+\# # # # # # # # # # <br>
+\# # # # # # 1# # # # <br>
+\# # # # # # # # # # <br>
+\# # # # # # # # # # <br>
+\# # # # # # # # # # <br>
+\# # # # # # # # # # <br>
+\# # # # # # # # 3# # <br>
+\# # # 2# # # # # 4# <br>
