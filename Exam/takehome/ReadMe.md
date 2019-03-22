@@ -1,4 +1,4 @@
-## Open Book Exam
+## Take home
 ### Question 1
 
 Server uses a library called inotify, which generates events when any file in the directory is modified.
