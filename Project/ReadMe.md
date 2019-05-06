@@ -42,9 +42,9 @@ We are runnong a server in digital ocean, which takes packets from one source an
 
 ## 1.0 Implementation:
 
-|-------------------------------------------------------|
-|----UDP_Header----|-----RTP Header-----|----Message----|
-|-------------------------------------------------------|
+|-------------------------------------------------------|<br>
+|----UDP_Header----|-----RTP Header-----|----Message----|<br>
+|-------------------------------------------------------|<br>
 
 We used pulseaudio for recording and playback purposes on C. 
 The need for RTP was already mentioned before. And the header is how we use it to help us overcome the difficulties of UDP. Most times RTP works out when we use it for video conferencing. But since we are only majorly focussing on voice calls we have not implemented the RTCP part of the protocol. RTCP deals with maintainence of the quality of service, which is not of major worry to us. 
