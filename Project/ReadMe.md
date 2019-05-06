@@ -22,17 +22,17 @@ Hence, for the second feature, we use a protocol called RTP. <br>
 RTP (Real time transport protocol) is a real time end-to-end transport protocol that runs over UDP. RTP helps recovering lost segments and resequencing of the packets for the application layer. It doesn’t guarantee real time delivery of data but helps manage the data to the best effect. These are common issues during UDP. <br>
 
 #### RTP packet format:
-First 32 bits of the header are control bits. 
-	•	V, version number = 2, currently
-	•	P, padding bit = indicates if there are extra padding bytes at the end of the RTP packet
-	•	X, extension bit = Indicates presence of an extension header after the fixed header
-	•	CC, count field = number of contributing source identifiers (CSRC) following the fixed header
-	•	M, marker bit = Used as a general marker, defined by a profile. If it is set, it means that the current data has some special relevance for the application.
-	•	PT, payload type field = Identifies the payload format, which defines application specific extensions or modifications to RTP (A receiver MUST ignore packets with payload types that it does not understand) 
-	•	Sequence number = incrementing counter which is started by a source from a random number
-	•	Timestamp = generation instant of the first octet in the data packet (helps in synchronization)
-	•	Synchronization source identifier (SSRC) = randomly generated value that uniquelly identifies the synchronization source within a session (unique, for one session)
-	•	Contributing source identifiers (CSRC) = identifies the contributing sources
+First 32 bits of the header are control bits. <br>
+	•	V, version number = 2, currently <br>
+	•	P, padding bit = indicates if there are extra padding bytes at the end of the RTP packet <br>
+	•	X, extension bit = Indicates presence of an extension header after the fixed header <br>
+	•	CC, count field = number of contributing source identifiers (CSRC) following the fixed header <br>
+	•	M, marker bit = Used as a general marker, defined by a profile. If it is set, it means that the current data has some special relevance for the application. <br>
+	•	PT, payload type field = Identifies the payload format, which defines application specific extensions or modifications to RTP (A receiver MUST ignore packets with payload types that it does not understand) <br>
+	•	Sequence number = incrementing counter which is started by a source from a random number<br>
+	•	Timestamp = generation instant of the first octet in the data packet (helps in synchronization)<br>
+	•	Synchronization source identifier (SSRC) = randomly generated value that uniquelly identifies the synchronization source within a session (unique, for one session)<br>
+	•	Contributing source identifiers (CSRC) = identifies the contributing sources<br>
 
 As we can see, RTP provides us the payload type identification, source identification, sequence numbering and timestamping, which help in recovering  lost segments and resequencing of the packets.
 
